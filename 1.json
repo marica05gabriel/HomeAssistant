@@ -1,0 +1,18 @@
+{
+  "text": "Pepper, poți să pornești becurile în pivniță.",
+  "intent": "aprindeLumina",
+  "entities": [
+    {
+      "end": 44,
+      "entity": "loc",
+      "start": 37,
+      "value": "pivniță"
+    },
+    {
+      "end": 44,
+      "entity": "loc1",
+      "start": 37,
+      "value": "pivniță2"
+    }
+  ]
+}
