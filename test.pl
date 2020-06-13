@@ -119,4 +119,5 @@ intreabaEvent(Data,Ora):-write('Nu exista ora final'),nl,
 
 
 
+
 GM-IC.
