@@ -22,7 +22,7 @@ get_d(FPath, Dicty) :-
 	.
 
 handling_received:-
-	get_d('H:/HomeAssistant/1.json', json(Object)),
+	get_d('H:/HomeAssistant/sedinta.json', json(Object)),
 	not(received(Object)),
 	asserta(received(Object)),
 	listing(received)
@@ -75,8 +75,37 @@ listAll:-
 	listing(entities(_)),
 	listing(entity(_,_)).
 
+% trb apelat cu parametru
+manageRequest:-  intent(X),
+                manageRequest(X).
+manageRequest(adaugaCalendarEvent):-write(adaugaCalendarEvent),nl,
+        verifyData(Data),!,
+        verifyOraInceput(Ora),!,
+        verifyOraFinal(Data,Ora, OraFinal),!.
 
 
+verifyData(X):-entity(data,X),write(X),nl,!.
+verifyData(X):-entity(data_timp,X),write(X),nl,!.
+verifyData(X):-write(noDataFound),nl,!.
+
+verifyOraInceput(X):-entity(ora_inceput, X),write(X),nl,!.
+verifyOraInceput(X):-entity(ora_inceput_relativ, X),write(X),nl,!.
+verifyOraInceput(X):-write('no hour found'),nl,!.
+
+manageRequest(intreabaCalendarEvent):-write(intreabaCalendarEvent).
+
+intreabaEvent(Data, Ora, OraFinal).
+verifyOraFinal(Data, Ora, OraFinal):-entity(ora_final, OraFinal),write(OraFinal),nl,!.
+verifyOraFinal(Data, Ora, OraFinal):-intreabaEvent(Data, Ora).
+
+intreabaEvent(Data,Ora,OraFinal):-write('Exista ora final'),nl,
+                                  write(Data),nl,
+                                  write(Ora),nl,
+                                  write(OraFinal),nl.
+
+intreabaEvent(Data,Ora):-write('Nu exista ora final'),nl,
+                        write(Data),nl,
+                        write(Ora),nl.
 
 
 
