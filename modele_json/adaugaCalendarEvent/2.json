@@ -1,0 +1,30 @@
+{
+  "text": "Pepper, aș vrea să îmi pui ședință cu echipa în data de miercuri între 12 și 13.",
+  "intent": "adaugaCalendarEvent",
+  "entities": [
+    {
+      "end": 44,
+      "entity": "event",
+      "start": 27,
+      "value": "ședință cu echipa"
+    },
+    {
+      "end": 64,
+      "entity": "data",
+      "start": 56,
+      "value": "miercuri"
+    },
+    {
+      "end": 73,
+      "entity": "ora_inceput",
+      "start": 71,
+      "value": "12"
+    },
+    {
+      "end": 79,
+      "entity": "ora_final",
+      "start": 77,
+      "value": "13"
+    }
+  ]
+}

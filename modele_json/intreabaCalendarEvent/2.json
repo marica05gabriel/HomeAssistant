@@ -1,0 +1,24 @@
+{
+  "text": "este ceva planificat pentru poimâine între 19 și 21?",
+  "intent": "intreabaCalendarEvent",
+  "entities": [
+    {
+      "end": 36,
+      "entity": "data",
+      "start": 28,
+      "value": "poimâine"
+    },
+    {
+      "end": 45,
+      "entity": "ora_inceput",
+      "start": 43,
+      "value": "19"
+    },
+    {
+      "end": 51,
+      "entity": "ora_final",
+      "start": 49,
+      "value": "21"
+    }
+  ]
+}

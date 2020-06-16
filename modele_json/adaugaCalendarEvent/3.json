@@ -1,0 +1,24 @@
+{
+  "text": "Pepper, adaugă programare la stomatolog pe mâine la 12.",
+  "intent": "adaugaCalendarEvent",
+  "entities": [
+    {
+      "end": 39,
+      "entity": "event",
+      "start": 15,
+      "value": "programare la stomatolog"
+    },
+    {
+      "end": 48,
+      "entity": "data",
+      "start": 43,
+      "value": "mâine"
+    },
+    {
+      "end": 54,
+      "entity": "ora_inceput",
+      "start": 52,
+      "value": "12"
+    }
+  ]
+}

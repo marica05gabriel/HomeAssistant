@@ -1,0 +1,30 @@
+{
+  "text": "poți adăuga programare la stomatolog în data de 11 septembrie între 13 și 14?",
+  "intent": "adaugaCalendarEvent",
+  "entities": [
+    {
+      "end": 36,
+      "entity": "event",
+      "start": 12,
+      "value": "programare la stomatolog"
+    },
+    {
+      "end": 61,
+      "entity": "data",
+      "start": 48,
+      "value": "11 septembrie"
+    },
+    {
+      "end": 70,
+      "entity": "ora_inceput",
+      "start": 68,
+      "value": "13"
+    },
+    {
+      "end": 76,
+      "entity": "ora_final",
+      "start": 74,
+      "value": "14"
+    }
+  ]
+}

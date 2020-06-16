@@ -1,0 +1,24 @@
+{
+  "text": "Pepper, aș vrea să știu ce apare în calendar planificat pentru azi între 12 și 15.",
+  "intent": "intreabaCalendarEvent",
+  "entities": [
+    {
+      "end": 66,
+      "entity": "data",
+      "start": 63,
+      "value": "azi"
+    },
+    {
+      "end": 75,
+      "entity": "ora_inceput",
+      "start": 73,
+      "value": "12"
+    },
+    {
+      "end": 81,
+      "entity": "ora_final",
+      "start": 79,
+      "value": "15"
+    }
+  ]
+}

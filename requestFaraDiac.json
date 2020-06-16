@@ -1,0 +1,1 @@
+{"text": "este ceva planificat pentru poim\u00e2ine \u00eentre 19 \u0219i 21?", "intent": "intreabaCalendarEvent", "entities": [{"end": 36, "entity": "data", "start": 28, "value": "poimaine"}, {"end": 45, "entity": "ora_inceput", "start": 43, "value": "19"}, {"end": 51, "entity": "ora_final", "start": 49, "value": "21"}]}
