@@ -88,7 +88,7 @@ listResponses:-
 	listing(resp_ora_inceput(_)),
 	listing(resp_ora_final(_)).
 
-% trb apelat cu parametru
+
 manageRequest(Response):-  intent(X),
                 manageRequest(X, Response).
 manageRequest(adaugaCalendarEvent, Response):-
@@ -99,7 +99,6 @@ manageRequest(adaugaCalendarEvent, Response):-
 		append(L1, L2, R1),
 		append([event], R1, R2),
 		append(R2, L3, Response).
-		% write(Response)
 
 manageRequest(intreabaCalendarEvent, Response):-
 		verifyData(Data, L1),!,
@@ -111,10 +110,9 @@ manageRequest(intreabaCalendarEvent, Response):-
 verifyEvent(X, [event]) :- entity(event, X).
 verifyEvent(_, [error]).
 
-% verifyData(X):-entity(data,X),asserta(resp_data(X)), write("aici: "), write(X), nl,!.
 verifyData(X, [data]):-entity(data,X), !.
 verifyData(X, [data_timp]):-entity(data_timp,X),!.
-verifyData(_, [error]):-write(noDataFound),nl,!.
+verifyData(_, [warning]):-write(noDataFound),nl,!.
 
 verifyOraInceput(X, [ora_inceput]):-entity(ora_inceput, X), !.
 verifyOraInceput(X, [ora_inceput_relativ]):-entity(ora_inceput_relativ, X), !.
@@ -122,16 +120,6 @@ verifyOraInceput(_, [error]):-write('no hour found'),nl,!.
 
 manageRequest(intreabaCalendarEvent, Response):-write(intreabaCalendarEvent).
 
-intreabaEvent(Data, Ora, OraFinal).
 verifyOraFinal(OraFinal, [ora_final]):-entity(ora_final, OraFinal),write(OraFinal).
 verifyOraFinal(_, [warning]).
-
-intreabaEvent(Data,Ora,OraFinal):-write('Exista ora final'),nl,
-                                  write(Data),nl,
-                                  write(Ora),nl,
-                                  write(OraFinal),nl.
-
-intreabaEvent(Data,Ora):-write('Nu exista ora final'),nl,
-                        write(Data),nl,
-                        write(Ora),nl.
 

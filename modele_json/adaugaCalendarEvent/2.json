@@ -9,22 +9,10 @@
       "value": "ședință cu echipa"
     },
     {
-      "end": 64,
-      "entity": "data",
-      "start": 56,
-      "value": "miercuri"
-    },
-    {
       "end": 73,
       "entity": "ora_inceput",
       "start": 71,
-      "value": "12"
-    },
-    {
-      "end": 79,
-      "entity": "ora_final",
-      "start": 77,
-      "value": "13"
+      "value": "dimineata"
     }
   ]
 }

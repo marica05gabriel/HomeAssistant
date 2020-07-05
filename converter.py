@@ -36,7 +36,7 @@ class Converter:
             return word
 
     def convertRequest(self):   # pe 2 merge
-        with open("modele_json/intreabaCalendarEvent/2.json", "r", encoding="utf8") as read_file:
+        with open("modele_json/adaugaCalendarEvent/2.json", "r", encoding="utf8") as read_file:
             data = json.load(read_file)
 
         for entity in data['entities']:
@@ -54,6 +54,10 @@ class DateHandler:
         if days_ahead <= 0: # Target day already happened this week
             days_ahead += 7
         return d + datetime.timedelta(days_ahead)
+
+    def get_days_ahead(self, nr, hour):
+        d = datetime.datetime(dt.today().year, dt.today().month, dt.today().day, hour, 0, 0)
+        return d + datetime.timedelta(nr)
 
     def getNumOfDay(self, day):
         switcher = {
@@ -86,7 +90,7 @@ class DateHandler:
             'septembrie'    : 9,
             'octombrie'     : 10,
             'noiembrie'     : 11,
-            'decembrie'  : 12
+            'decembrie'     : 12
         }
         try:
             return switcher[month]
@@ -115,13 +119,12 @@ class DateHandler:
     def getNextWeekday(self, day, hour):
         date = self.getNumOfDay(day)
         d = datetime.datetime(dt.today().year, dt.today().month, dt.today().day, hour, 0, 0)
-        print(d)
         return self.next_weekday(d, date) # 0 = Monday, 1=Tuesday, 2=Wednesday...
 
     def getTodayOrTomorrow(self, day, hour):
         if day == 7:
             return datetime.datetime(dt.today().year, dt.today().month, dt.today().day, hour, 0, 0)
         elif day == 8:
-            return datetime.datetime(dt.today().year, dt.today().month, dt.today().day + 1, hour, 0, 0)
-        else:
-            return datetime.datetime(dt.today().year, dt.today().month, dt.today().day + 2, hour, 0, 0)
+            return self.get_days_ahead(1, hour)
+        elif day == 9:
+            return self.get_days_ahead(2, hour)
