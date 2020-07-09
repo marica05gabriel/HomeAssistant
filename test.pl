@@ -1,3 +1,11 @@
+animal(dog)  :- is_true('has fur'), is_true('says woof').
+animal(cat)  :- is_true('has fur'), is_true('says meow').
+animal(duck) :- is_true('has feathers'), is_true('says quack').
+is_true(Q) :-
+        format("~w?\n", [Q]),
+        read(yes).
+%---------------------------------------------------------------------
+
 :-dynamic received/1.
 :-dynamic json/1.
 
@@ -21,12 +29,11 @@ get_d(FPath, Dicty) :-
 	.
 
 handling_received:-
-	get_d('C:/Users/Ionut/Desktop/proiecte/HomeAssistant/requestFaraDiac.json', json(Object)),
+	get_d('H:/HomeAssistant/requestFaraDiac.json', json(Object)),
 	not(received(Object)),
 	asserta(received(Object)),
 	listing(received)
 	.
-
 handling_received:-listing(received).
 
 populate:- !,
@@ -51,10 +58,10 @@ processing([json(E)|T]):-
 	processing(T).
 
 processing([(entity=E) | T]) :-
-	asserta(entity(E,_)),
+	asserta(entity(E,X)),
 	processing(T).
 
-processing([(value=V) | _]) :-
+processing([(value=V) | T]) :-
 	retract(entity(E,_)),
 	asserta(entity(E,V)).
 
@@ -75,50 +82,11 @@ listAll:-
 	listing(entities(_)),
 	listing(entity(_,_)).
 
-<<<<<<< HEAD
-% trb apelat cu parametru
-manageRequest:-  intent(X),
-                manageRequest(X).
-manageRequest(adaugaCalendarEvent):-write(adaugaCalendarEvent),nl,
-        verifyData(Data),!,
-        verifyOraInceput(Ora),!,
-        verifyOraFinal(Data,Ora, OraFinal),!.
-
-
-verifyData(X):-entity(data,X),write(X),nl,!.
-verifyData(X):-entity(data_timp,X),write(X),nl,!.
-verifyData(X):-write(noDataFound),nl,!.
-
-verifyOraInceput(X):-entity(ora_inceput, X),write(X),nl,!.
-verifyOraInceput(X):-entity(ora_inceput_relativ, X),write(X),nl,!.
-verifyOraInceput(X):-write('no hour found'),nl,!.
-
-manageRequest(intreabaCalendarEvent):-write(intreabaCalendarEvent).
-
-intreabaEvent(Data, Ora, OraFinal).
-verifyOraFinal(Data, Ora, OraFinal):-entity(ora_final, OraFinal),write(OraFinal),nl,!.
-verifyOraFinal(Data, Ora, OraFinal):-intreabaEvent(Data, Ora).
-
-intreabaEvent(Data,Ora,OraFinal):-write('Exista ora final'),nl,
-                                  write(Data),nl,
-                                  write(Ora),nl,
-                                  write(OraFinal),nl.
-
-intreabaEvent(Data,Ora):-write('Nu exista ora final'),nl,
-                        write(Data),nl,
-                        write(Ora),nl.
-
-
-entity(gabi1,gabi2).
-
-
-=======
 listResponses:-
 	listing(resp_data(_)),
 	listing(resp_data_timp(_)),
 	listing(resp_ora_inceput(_)),
 	listing(resp_ora_final(_)).
->>>>>>> eab215f7b3f7dcc02d38b5151363943400b30969
 
 
 manageRequest(Response):-  intent(X),
@@ -154,4 +122,3 @@ manageRequest(intreabaCalendarEvent, Response):-write(intreabaCalendarEvent).
 
 verifyOraFinal(OraFinal, [ora_final]):-entity(ora_final, OraFinal),write(OraFinal).
 verifyOraFinal(_, [warning]).
-
