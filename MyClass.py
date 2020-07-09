@@ -2,7 +2,7 @@ from pyswip import Prolog
 from converter import Converter, DateHandler
 from calendarController import EventPrototype, CalendarController
 from datetime import datetime as dt
-import datetime
+from WeatherController import WeatherApiBuilder
 
 class EventHandler:
     def __init__(self):
@@ -12,6 +12,7 @@ class EventHandler:
         self.dateHandler = DateHandler()
         self.eventPrototype = EventPrototype()
         self.calendar = CalendarController()
+        self.weather = WeatherApiBuilder()
 
     def start(self):
         self.converter.convertRequest()
@@ -25,7 +26,7 @@ class EventHandler:
     
     def getSlots(self, slotNames):
         slots = {}
-        print(slotNames)
+        # print(slotNames)
         for slotName in slotNames:
             q = "entity(%s, %s)." % (slotName, slotName.capitalize())
             x = list(self.prolog.query(q))[0][slotName.capitalize()]
@@ -128,6 +129,15 @@ class EventHandler:
                 # e = self.calendar.getEventById(eventId)
                 print(start, event['summary'])
 
+    def handleAskWeather(self, slots):
+        city = None
+        for slot in slots:
+            if(slot == "Loc"):
+                city = slots[slot]
+
+        self.weather.askWeather(city)
+
+
     def intentManager(self, intent, slotNames):
         slots = self.getSlots(slotNames)
         
@@ -135,6 +145,8 @@ class EventHandler:
             self.handleAddEvent(slots)
         elif intent == 'intreabaCalendarEvent':
             self.handleAskEvent(slots)
+        elif intent == 'intreabaVremeaAfara':
+            self.handleAskWeather(slots)
         else:
             print("Intent not recognized")
 

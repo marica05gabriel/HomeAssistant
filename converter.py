@@ -1,9 +1,6 @@
-import csv
-import pickle
 import datetime
 import json
 from datetime import datetime as dt
-from pyswip import Prolog, Functor, Variable, Query, call
 
 class Converter:
     def __init__(self):
@@ -36,13 +33,13 @@ class Converter:
             return word
 
     def convertRequest(self):   # pe 2 merge
-        with open("modele_json/adaugaCalendarEvent/2.json", "r", encoding="utf8") as read_file:
+        with open("modele_json/intreabaVremeaAfara/1.json", "r", encoding="utf8") as read_file:
             data = json.load(read_file)
 
         for entity in data['entities']:
             s = entity['value']
             s = s.split()
-            print(s)
+            # print(s)
             entity['value'] = self.eliminateDiac(entity['value'])
 
         with open("requestFaraDiac.json", "w", encoding="utf8") as write_file:

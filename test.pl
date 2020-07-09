@@ -107,6 +107,17 @@ manageRequest(intreabaCalendarEvent, Response):-
 		append(L1, L2, R1),
 		append(R1, L3, Response).
 
+manageRequest(intreabaVremeaAfara, Response):-
+        verifyLocation(Location, L1),
+        verifyTime(Time, L2),
+        append(L1,L2,Response).
+
+verifyLocation(X, [loc]):-entity(loc, X),!.
+verifyLocation(X, [warning]):-write(noLocationFound).
+
+verifyTime(X, [timp]):-entity(loc, X),!.
+verifyTime(X, [warning]):-write(noTimeFound).
+
 verifyEvent(X, [event]) :- entity(event, X).
 verifyEvent(_, [error]).
 
