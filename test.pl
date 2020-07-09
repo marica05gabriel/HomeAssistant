@@ -1,11 +1,3 @@
-animal(dog)  :- is_true('has fur'), is_true('says woof').
-animal(cat)  :- is_true('has fur'), is_true('says meow').
-animal(duck) :- is_true('has feathers'), is_true('says quack').
-is_true(Q) :-
-        format("~w?\n", [Q]),
-        read(yes).
-%---------------------------------------------------------------------
-
 :-dynamic received/1.
 :-dynamic json/1.
 
@@ -15,6 +7,7 @@ is_true(Q) :-
 :-dynamic entity/2.
 
 :-use_module(library(http/json)).
+
 get_d(FPath, Dicty) :-
 	open(FPath, read, Stream),
 	json_read(Stream, Dicty),
@@ -27,6 +20,7 @@ handling_received:-
 	asserta(received(Object)),
 	listing(received)
 	.
+
 handling_received:-listing(received).
 
 populate:-
@@ -51,10 +45,10 @@ processing([json(E)|T]):-
 	processing(T).
 
 processing([(entity=E) | T]) :-
-	asserta(entity(E,X)),
+	asserta(entity(E,_)),
 	processing(T).
 
-processing([(value=V) | T]) :-
+processing([(value=V) | _]) :-
 	retract(entity(E,_)),
 	asserta(entity(E,V)).
 
@@ -108,7 +102,7 @@ intreabaEvent(Data,Ora):-write('Nu exista ora final'),nl,
                         write(Ora),nl.
 
 
-
+entity(gabi1,gabi2).
 
 
 

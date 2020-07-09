@@ -1,0 +1,30 @@
+{
+  "text": "Pepper, poți adăuga ședință cu echipa în azi între 9 și 10?",
+  "intent": "adaugaCalendarEvent",
+  "entities": [
+    {
+      "end": 37,
+      "entity": "event",
+      "start": 20,
+      "value": "ședință cu echipa"
+    },
+    {
+      "end": 44,
+      "entity": "data",
+      "start": 41,
+      "value": "azi"
+    },
+    {
+      "end": 52,
+      "entity": "ora_inceput",
+      "start": 51,
+      "value": "9"
+    },
+    {
+      "end": 58,
+      "entity": "ora_final",
+      "start": 56,
+      "value": "10"
+    }
+  ]
+}

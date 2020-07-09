@@ -1,0 +1,24 @@
+{
+  "text": "îmi poți zice care sunt evenimentele luni între 12 și 13?",
+  "intent": "intreabaCalendarEvent",
+  "entities": [
+    {
+      "end": 41,
+      "entity": "data",
+      "start": 37,
+      "value": "luni"
+    },
+    {
+      "end": 50,
+      "entity": "ora_inceput",
+      "start": 48,
+      "value": "12"
+    },
+    {
+      "end": 56,
+      "entity": "ora_final",
+      "start": 54,
+      "value": "13"
+    }
+  ]
+}

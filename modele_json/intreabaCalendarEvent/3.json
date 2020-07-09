@@ -1,0 +1,18 @@
+{
+  "text": "Salut, este ceva planificat pentru sâmbătă la 10?",
+  "intent": "intreabaCalendarEvent",
+  "entities": [
+    {
+      "end": 42,
+      "entity": "data",
+      "start": 35,
+      "value": "sâmbătă"
+    },
+    {
+      "end": 48,
+      "entity": "ora_inceput",
+      "start": 46,
+      "value": "10"
+    }
+  ]
+}

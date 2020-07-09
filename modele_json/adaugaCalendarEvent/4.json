@@ -1,0 +1,30 @@
+{
+  "text": "Salut, pune-mi prânz cu Maria în data de luni între 10 și 12.",
+  "intent": "adaugaCalendarEvent",
+  "entities": [
+    {
+      "end": 29,
+      "entity": "event",
+      "start": 15,
+      "value": "prânz cu Maria"
+    },
+    {
+      "end": 45,
+      "entity": "data",
+      "start": 41,
+      "value": "luni"
+    },
+    {
+      "end": 54,
+      "entity": "ora_inceput",
+      "start": 52,
+      "value": "10"
+    },
+    {
+      "end": 60,
+      "entity": "ora_final",
+      "start": 58,
+      "value": "12"
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 {
-   "text":"Salut, poți pune ședință cu echipa în marți pe ora 1?",
+   "text":"Salut, poti pune ședinta cu echipa în marti pe ora 1?",
    "intent":"adaugaCalendarEvent",
    "entities":[
       {
          "end":34,
          "entity":"event",
          "start":17,
-         "value":"ședință cu echipa"
+         "value":"sedinta cu echipa"
       },
       {
          "end":43,
          "entity":"data",
          "start":38,
-         "value":"marți"
+         "value":"marti"
       },
       {
          "end":52,
