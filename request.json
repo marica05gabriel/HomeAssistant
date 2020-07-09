@@ -1,0 +1,24 @@
+{
+  "text": "Salut, poti pune ședinta cu echipa în marti pe ora 1?",
+  "intent": "adaugaCalendarEvent",
+  "entities": [
+    {
+      "end": 34,
+      "entity": "event",
+      "start": 17,
+      "value": "sedinta cu echipa"
+    },
+    {
+      "end": 43,
+      "entity": "data",
+      "start": 38,
+      "value": "azi"
+    },
+    {
+      "end": 52,
+      "entity": "ora_inceput",
+      "start": 51,
+      "value": "1"
+    }
+  ]
+}
