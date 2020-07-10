@@ -113,10 +113,10 @@ manageRequest(intreabaVremeaAfara, Response):-
         append(L1,L2,Response).
 
 verifyLocation(X, [loc]):-entity(loc, X),!.
-verifyLocation(X, [warning]):-write(noLocationFound).
+verifyLocation(X, [warning]).
 
 verifyTime(X, [timp]):-entity(loc, X),!.
-verifyTime(X, [warning]):-write(noTimeFound).
+verifyTime(X, [warning]).
 
 verifyEvent(X, [event]) :- entity(event, X).
 verifyEvent(_, [error]).
