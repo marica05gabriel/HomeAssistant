@@ -32,8 +32,8 @@ class Converter:
         except:
             return word
 
-    def convertRequest(self):   # pe 2 merge
-        with open("modele_json/intreabaVremeaAfara/1.json", "r", encoding="utf8") as read_file:
+    def convertRequest(self, path):   # pe 2 merge
+        with open(path, "r", encoding="utf8") as read_file:
             data = json.load(read_file)
 
         for entity in data['entities']:

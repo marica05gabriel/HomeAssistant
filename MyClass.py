@@ -14,8 +14,8 @@ class EventHandler:
         self.calendar = CalendarController()
         self.weather = WeatherApiBuilder()
 
-    def start(self):
-        self.converter.convertRequest()
+    def start(self, path):
+        self.converter.convertRequest(path)
         self.prolog.consult(self.filename)
         list(self.prolog.query('handling_received.'))
         list(self.prolog.query('populate.'))
@@ -166,12 +166,11 @@ class EventHandler:
             intent = self.getIntent() 
             self.intentManager(intent, slotNames)
 
-def main():
+def main(args):
     myClass = EventHandler()
-    myClass.start()
+    myClass.start(args[0])
     myClass.manageRequest()
 
-if __name__ == "__main__":
-    main()
-
-    
+if __name__ == '__main__':
+    import sys
+    main(sys.argv[1:])
