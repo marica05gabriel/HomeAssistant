@@ -29,7 +29,7 @@ get_d(FPath, Dicty) :-
 	.
 
 handling_received:-
-	get_d('H:/HomeAssistant/requestFaraDiac.json', json(Object)),
+	get_d('C:/Users/Ionut/Desktop/proiecte/HomeAssistant/requestFaraDiac.json', json(Object)),
 	not(received(Object)),
 	asserta(received(Object)),
 	listing(received)
